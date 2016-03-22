@@ -1,0 +1,56 @@
+
+
+<div class="row" ng-controller = "AppDetailCtrl">
+	<form name="appointmentForm" ng-submit="appDetail.actionOnAppointment(true)" novalidate>
+			
+			<div >
+				<h3>Appointment number {{ appId }}</h3>
+				
+			</div>
+		
+	<div ng-repeat="app in appointments">
+		<div ng-if="app.appId == appId">
+		<div class="panel panel-default">
+			<table class="table table-striped table-hover">
+				<thead>
+					<tr>
+						<th>Patient ID</th>
+						<th>Reason</th>
+						<th>Status</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>{{ app.patientId }}</td>
+						<td>{{ app.reason }}</td>
+						<td>{{ app.status }}</td>
+					</tr>
+				</tbody>
+			</table>
+			</div>
+			<input type="text" style="display: none"
+					name="patientId" class="form-control" id="patientId"
+					ng-model="appDetail.params.patientId" ng-init="appDetail.params.patientId=app.patientId"/>
+			<input type="text" style="display: none"
+					name="doctorId" class="form-control" id="doctorId"
+					ng-model="appDetail.params.doctorId" ng-init="appDetail.params.doctorId=app.doctorId"/>  
+		</div>
+	</div>
+		
+		<div class="radio">
+            <label>
+                <input type="radio" value="accepted" ng-model="appDetail.params.status">
+                Approve
+            </label>
+        </div>
+        <div class="radio">
+            <label>
+                <input type="radio" value="rejected" ng-model="appDetail.params.status">
+                Decline
+            </label>
+        </div>
+		<div>
+			<button type="submit" class="btn btn-primary">Submit action</button>
+		</div>
+	</form>
+</div>

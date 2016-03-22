@@ -1,0 +1,78 @@
+
+ <!-- <section style="background-color: #b0c4de;">  -->
+ 
+	<style>
+
+body {
+    background-image: url("http://localhost:8088/PatientReportingSys/project/app/images/medical1.jpg");
+    
+}
+
+mark {
+    background-color: grey;
+    color: black;
+}
+
+</style>
+	
+	<div style="margin-right:auto; margin-left:auto;">
+		
+		<!-- col-md-offset-3" style= "padding-left: 100px" -->
+		
+		 <div class="col-xs-4 col-md-4 col-md-offset-4" > 
+		<form name="userForm" ng-submit="login.doLogin(userForm.$valid)"
+		novalidate>
+			
+			<div align="center">
+			<br><br><br><br><br>
+
+			<h2>User Login</h2>
+			</div>
+			
+			<div ng-show="login.message != null" class="help-block"><h4 align="center" class="btn-danger">{{login.message}}</h4></div>
+			<!-- <div class="input-group"> -->
+				<input type="text"
+					name="username" class="form-control" id="username" placeholder="Username"
+					ng-model="login.user.username" ng-required="true">
+				<p
+					ng-show="userForm.username.$invalid && !userForm.username.$pristine"
+					class="help-block"><mark>Username is required.</mark></p>
+			<!-- </div> -->
+
+			<!-- <div class="input-group"> -->
+				<input type="password"
+					name="password" class="form-control" id="password" placeholder="Password"
+					ng-model="login.user.password" ng-required="true">
+				<p
+					ng-show="userForm.password.$invalid && !userForm.password.$pristine"
+					class="help-block"><mark>Password is required.</mark></p>
+			<!-- </div> -->
+			<div ng-controller="RoleCtrl">
+				<select id="role" name="role" ng-model="login.user.roleId" class="form-control" required
+					ng-options="roleDto.id as roleDto.title for roleDto in roles">
+					<option value="">Select Role</option>
+				</select>
+				<p
+					ng-show="userForm.role.$invalid && !userForm.role.$pristine"
+					class="help-block"><mark>Role is required.</mark></p>
+			</div>
+			<br>
+			<button type="submit" class="btn btn-block btn-primary"
+				ng-disabled="userForm.$invalid">Login</button>
+
+		
+		</form>
+		</div>
+		</div>
+		
+		
+
+
+
+	
+<!-- </section> -->
+
+
+
+
+

@@ -1,0 +1,28 @@
+<div align="center">
+	<h2>{{ showDocApps.doctor.username }}, here is all your appointments:</h2>
+</div>
+<div class="row">
+	<div class="panel panel-default">
+	
+		
+			<table class="table table-striped table-hover">
+			<thead class="btn-info">
+				<tr>
+					<th>Date</th>
+					<th>Reason</th>
+					<th>Status</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr ng-repeat="app in showDocApps.appointments">
+				
+					<td>{{app.appDate}}</td>
+					<td>{{app.reason}}</td>
+					<td>{{app.status}}</td>
+				
+				</tr>
+			</tbody>
+			</table>
+		
+		</div>
+</div>

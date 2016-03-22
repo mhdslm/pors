@@ -1,0 +1,84 @@
+<div class="col-md-2">
+	<img style="border: 1px solid #a1a1a1; border-radius: 5px;"
+		src="http://localhost:8088/PatientReportingSys/project/app/images/doctor_default_pic.jpg"
+		alt="doctor profile">
+</div>
+<div ng-repeat="doctor in appointmentRequest.doctorsList">
+	<div ng-if="doctor.doctorId == doctorId">
+		<div class="col-md-4">
+			<h5>
+				<strong>Name: Dr. {{doctor.firstName}} {{doctor.lastName}}</strong>
+			</h5>
+			<h5><strong>Email: {{ doctor.email}}</strong></h5>
+			<p align="justify">Lorem ipsum dolor sit amet, consectetur adipiscing
+				elit. Vestibulum ultricies dictum consectetur. Pellentesque posuere
+				vehicula eros, feugiat convallis est finibus nec. Curabitur
+				tincidunt scelerisque mi. Nam nec quam eget urna pulvinar placerat.
+				Donec posuere sollicitudin ligula, quis suscipit leo luctus vitae.</p>
+		</div>
+	</div>
+</div>
+
+<!--  Message when the appointment is scheduled-->
+<div class="row">
+	<div ng-show="appointmentRequest.message"
+		class="alert alert-success col-xs-6 col-md-6 col-md-offset-3">
+		<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+		<h5 align="center"><strong>{{appointmentRequest.message}}</strong></h5>
+	</div>
+</div>
+
+
+
+<div class="row">
+	<form name="appointmentForm"
+		ng-submit="appointmentRequest.makeAppointment(appointmentForm.$valid)"
+		novalidate>
+		<div class="col-xs-6 col-md-6 col-md-offset-3">
+			<h1>Schedule an Appointment</h1>
+			<!-- {{appointmentRequest.appointment.user.username }} -->
+
+			<div class="form-group">
+				<label for="appDate">Select a date:</label> <input type="date"
+					id="appDate" name="appDate"
+					ng-model="appointmentRequest.appointment.appDate"
+					placeholder="yyyy-MM-dd" min="2015-11-18" max="2015-12-31" required />
+				<div role="alert">
+					<span class="error"
+						ng-show="appointmentForm.appDate.$error.required">
+						Required!</span> <span class="error"
+						ng-show="appointmentForm.appDate.$error.date"> Not a valid
+						date!</span>
+				</div>
+
+			</div>
+
+			<div class="input-group">
+				<label for="reason">Reason:</label>
+				<textarea rows="5" cols="40" name="reason" class="form-control"
+					id="reason" ng-model="appointmentRequest.appointment.reason"
+					ng.required="true" required>
+				</textarea>
+				<p
+					ng-show="appointmentForm.reason.$invalid && !appointmentForm.reason.$pristine"
+					class="help-block">Reason is required.</p>
+			</div>
+
+
+			<button type="submit" class="btn btn-primary"
+				ng-disabled="appointmentForm.$invalid">Request Appointment</button>
+		</div>
+	</form>
+
+	<form name="unregisterForm"
+		ng-submit="appointmentRequest.unregisterDoctor
+(unregisterForm.$valid)"
+		novalidate>
+		<div class="col-xs-6 col-md-6 col-md-offset-3">
+			<br>
+			<button type="submit" ng-disabled="unregisterForm.$invalid"
+				class="btn btn-danger">Unregister from Doctor</button>
+		</div>
+	</form>
+</div>
+

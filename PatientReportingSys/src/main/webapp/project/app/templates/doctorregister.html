@@ -1,0 +1,58 @@
+
+<div class="row">
+	<form>
+		<div class="col-xs-6 col-md-6 col-md-offset-3">
+			<h3>{{ doctorRegister.user.username }}, here you can register to the following doctors:</h3>
+		</div>
+	</form>
+
+	
+</div>
+
+<div class="row">
+	<br> <br> <br>
+
+	<div class="col-xs-6 col-md-6 col-md-offset-3">
+		<form name="registerToDoctorForm"
+			ng-submit="doctorRegister.registerDoctor(registerToDoctorForm.$valid)"
+			novalidate>
+
+			<table class="table table-striped">
+				<thead>
+					<tr>
+						<th>Select</th>
+						<th>Name</th>
+						<th>Email</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr ng-repeat="doctor in doctorRegister.listOfDoctors">
+						<td><input type="radio" name="groupName"
+							value="{{doctor.doctorId}}"
+							ng-model="doctorRegister.doctor.registered"></input></td>
+						<td>Dr. {{doctor.firstName}} {{doctor.lastName}}</td>
+						<td>{{doctor.email}}</td>
+					</tr>
+				</tbody>
+			</table>
+			<div ng-hide="doctorRegister.isEmpty">
+			<button type="submit" class="btn btn-primary"
+				ng-disabled="registerToDoctorForm.$invalid">Register to
+				Doctor</button>
+			</div>
+			
+			<div ng-show="doctorRegister.isEmpty" class="alert alert-warning">
+				<h5>No records found in the database. This might be due to the following reasons:</h5>
+			
+				<ul>
+					<li>You have registered to all doctors.</li>
+					<li>There is no doctor registered in our database at this time.</li>
+				</ul>
+				
+			</div>
+
+		</form>
+	</div>
+
+
+</div>

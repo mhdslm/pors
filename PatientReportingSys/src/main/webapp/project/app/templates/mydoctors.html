@@ -1,0 +1,81 @@
+<!--  Message when the appointment is scheduled-->
+<div class="row">
+	<div ng-show="myDoctors.message"
+		class="alert alert-success col-xs-6 col-md-6 col-md-offset-3">
+		<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+		<h5 align="center"><strong>{{myDoctors.message}}</strong></h5>
+	</div>
+</div>
+
+<div class="row">
+	<div align="center">
+		<h2>{{ myDoctors.user.username }}, here is your list of current doctors:</h2>
+	</div>
+</div>
+
+<div class="row">
+	<br> <br> <br>
+	<div id="doctorsTable" class="col-md-6 col-md-offset-3">
+		<div class="panel panel-default">
+			<table class="table table-hover">
+				<thead class="btn-info">
+					<tr>
+						<th>Name</th>
+						<th>Email</th>
+					</tr>
+				</thead>
+				<tbody class="rowToClick">
+
+					<tr ng-repeat="doctor in myDoctors.listOfDoctors">
+						<td><a
+							ui-sref="myDoctors.appointmentRequest({doctorId: doctor.doctorId})">Dr. {{doctor.firstName}}
+								{{doctor.lastName}}</a></td>
+						<td>{{doctor.email}}</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+	
+	
+	<!-- Doctor profile -->
+	
+<!-- 	<div class="col-md-2">
+		<img style="border: 1px solid #a1a1a1; border-radius: 5px;"
+			src="http://localhost:8088/PatientReportingSys/project/app/images/doctor_default_pic.jpg"
+			alt="doctor profile">
+	</div>
+	
+	<div class="col-md-4">
+		<h5>Dr.</h5>
+	</div> -->
+	
+	<div class="container-fluid">
+		<div class="row">
+			<div ui-view></div>
+		</div>
+	</div>
+
+</div>
+<script type="text/javascript">
+		$(document).ready(function(){
+			
+		      /*  $('#doctorsTable').click(function() {
+		            console.log('inside jquey');
+		        }); */
+		        
+		        $(".rowToClick").one('click', function(){
+		        	console.log('inside jquery script');
+		        	if($("#doctorsTable").hasClass("col-md-offset-3")){
+		        		$("#doctorsTable").removeClass("col-md-offset-3");
+		        	}
+		                
+		        });
+		        
+		  });
+		$(window).load(function(){
+        	if(!$("#doctorsTable").hasClass("col-md-offset-3")){
+        		$("#doctorsTable").addClass("col-md-offset-3");
+        	}
+        });
+</script>

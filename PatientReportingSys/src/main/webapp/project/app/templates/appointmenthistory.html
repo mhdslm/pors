@@ -1,0 +1,38 @@
+
+<div class="row">
+	<div align="center">
+		<h2>{{ appointmentHistory.patient.username}}, here is your appointment history:</h2>
+	</div>
+</div>
+<div class="row">
+	<br> <br> <br>
+
+	<div class="panel panel-default">
+		<table class="table table-striped">
+			<thead>
+				<tr>
+					<th>Date</th>
+					<th>Reason</th>
+					<th>Scheduled with Doctor</th>
+					<th>Status</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr ng-repeat="appointment in appointmentHistory.listOfAppointments">
+
+					<td align="center" class="btn-info">{{appointment.appDate}}</td>
+					<td class="text-primary">{{appointment.reason}}</td>
+					<td class="bg-info">Dr. {{appointment.doctor.firstName}}
+						{{appointment.doctor.lastName}}</td>
+					<td align="center"
+						ng-class="{'btn-success': appointment.status=='accepted', 
+								   'btn-danger': appointment.status=='rejected', 
+								   'btn-warning': appointment.status=='pending'}">{{appointment.status}}</td>
+
+				</tr>
+			</tbody>
+		</table>
+	</div>
+
+
+</div>

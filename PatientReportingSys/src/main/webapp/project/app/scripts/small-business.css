@@ -1,0 +1,89 @@
+/*!
+ * Start Bootstrap - Small Business HTML Template (http://startbootstrap.com)
+ * Code licensed under the Apache License v2.0.
+ * For details, see http://www.apache.org/licenses/LICENSE-2.0.
+ */
+
+
+.center_div{
+    margin: 0 auto;
+    width:xx /* value of your choice which suits your alignment */
+}
+
+
+ .intro-header {
+  /*   padding-top: 0px; If you're making other pages, make sure there is 50px of padding to make sure the navbar doesn't overlap content!
+    padding-bottom: 0px; */
+    text-align: center;
+    color: #9bb7a7;
+   /*  background: url(../img/intro-bg.jpg) no-repeat center center;
+    background-size: cover; */
+} 
+
+
+.intro-header1 {
+  /*   padding-top: 0px; If you're making other pages, make sure there is 50px of padding to make sure the navbar doesn't overlap content!
+    padding-bottom: 0px; */
+    text-align: center;
+    color: #9bb7a7;
+    background:url(http://localhost:8088/PatientReportingSys/project/app/images/medical.jpg) no-repeat center center;
+    background-size: cover;  
+} 
+
+.intro-message {
+    position: relative;
+    padding-top: 0%;
+    padding-bottom: 0%;
+}
+
+.intro-message > h1 {
+    margin: 0;
+    text-shadow: 2px 2px 3px rgba(0,0,0,0.6);
+    font-size: 5em;
+}
+
+.intro-divider {
+    width: 400px;
+    border-top: 1px solid #f8f8f8;
+    border-bottom: 1px solid rgba(0,0,0,0.2);
+}
+
+.intro-message > h3 {
+   
+}
+
+
+body {
+    padding-top: 70px; /* Required padding for .navbar-fixed-top. Change if height of navigation changes. */
+}
+
+.navbar-fixed-top .nav {
+    padding: 15px 0;
+}
+
+.navbar-fixed-top .navbar-text {
+   color: #9bb7a7;
+}
+
+.navbar-fixed-top .navbar-brand {
+    padding: 0 15px;
+   
+}
+
+
+footer {
+    padding: 30px 0;
+}
+
+@media(min-width:768px) {
+    body {
+        padding-top: 100px; /* Required padding for .navbar-fixed-top. Change if height of navigation changes. */
+    }
+
+    .navbar-fixed-top .navbar-brand {
+        padding: 15px 0;
+        
+        
+    }
+}
+

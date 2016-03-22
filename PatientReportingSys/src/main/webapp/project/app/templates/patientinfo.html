@@ -1,0 +1,86 @@
+<div class="row">
+	<form name="patientForm" ng-submit="patientInfo.collectInfo(patientForm.$valid)"
+		novalidate>
+		<div class="col-xs-6 col-md-6 col-md-offset-3">
+			<h1>Patient Info</h1>
+			 <div class="help-block" ng-show="patientInfo.message != null">{{patientInfo.message}}</div> 
+
+			<div class="input-group">
+				<label for="firstName">First Name:</label> <input type="text"
+					name="firstName" class="form-control" id="firstName"
+					ng-model="patientInfo.patient.firstName" ng-required="true">
+				<p
+					ng-show="patientForm.firstName.$invalid && !patientForm.firstName.$pristine"
+					class="help-block">First Name is required.</p>
+			</div>
+			
+			<div class="input-group">
+				<label for="lastName">Last Name:</label> <input type="text"
+					name="lastName" class="form-control" id="lastName"
+					ng-model="patientInfo.patient.lastName" ng-required="true">
+				<p
+					ng-show="patientForm.lastName.$invalid && !patientForm.lastName.$pristine"
+					class="help-block">Last Name is required.</p>
+			</div>
+			
+			<div class="input-group">
+				<label for="street">Street:</label> <input type="text"
+					name="street" class="form-control" id="street"
+					ng-model="patientInfo.patient.street" ng-required="true">
+				<p
+					ng-show="patientForm.street.$invalid && !patientForm.street.$pristine"
+					class="help-block">Street is required.</p>
+			</div>
+			
+			<div class="input-group">
+				<label for="city">City:</label> <input type="text"
+					name="city" class="form-control" id="city"
+					ng-model="patientInfo.patient.city" ng-required="true">
+				<p
+					ng-show="patientForm.city.$invalid && !patientForm.city.$pristine"
+					class="help-block">City is required.</p>
+			</div>
+			
+			<div class="input-group">
+				<label for="state">State:</label> <input type="text"
+					name="state" class="form-control" id="state"
+					ng-model="patientInfo.patient.state" ng-required="true">
+				<p
+					ng-show="patientForm.state.$invalid && !patientForm.state.$pristine"
+					class="help-block">State is required.</p>
+			</div>
+			
+			
+			<div class="input-group">
+				<label for="zipcode">Zipcode:</label> <input type="text"
+					name="zipcode" class="form-control" id="zipcode"
+					ng-model="patientInfo.patient.zipcode" ng-required="true">
+				<p
+					ng-show="patientForm.zipcode.$invalid && !patientForm.zipcode.$pristine"
+					class="help-block">Zipcode is required.</p>
+			</div>
+			
+			<div class="input-group">
+				<label for="phoneNumber">Phone Number:</label> <input type="text"
+					name="phoneNumber" class="form-control" id="phoneNumber"
+					ng-model="patientInfo.patient.phoneNumber" ng-required="true">
+				<p
+					ng-show="patientForm.phoneNumber.$invalid && !patientForm.phoneNumber.$pristine"
+					class="help-block">Phone Number is required.</p>
+			</div>
+			
+			<div class="input-group">
+				<label for="email">Email:</label> <input type="text"
+					name="email" class="form-control" id="email"
+					ng-model="patientInfo.patient.email" ng-required="true">
+				<p
+					ng-show="patientForm.email.$invalid && !patientForm.email.$pristine"
+					class="help-block">Email is required.</p>
+			</div>
+			
+			<button type="submit" class="btn btn-primary"
+				ng-disabled="patientForm.$invalid">Sumbit</button>
+
+		</div>
+	</form>
+</div>

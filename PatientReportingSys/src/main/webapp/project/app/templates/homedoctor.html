@@ -1,0 +1,71 @@
+<div class="row">
+	<form>
+		<div>
+			<h3 align="center">Welcome, {{ user.username }}!</h3>
+			<div class="col-md-6 col-md-offset-3 alert alert-info">
+				<p>Here, you can see all requested appointments. You can select
+					each appointment to take appropriate action. An appointment
+					notification will be sent to the patient once the action is
+					submitted.</p>
+			</div>
+		</div>
+	</form>
+</div>
+<!-- <div class="row">
+	<br> <br> <br>
+	<form>
+		 <div>
+			<button class="btn btn-primary" ng-click="showDocAppointments()">Appointments History
+			</button>
+		</div> 
+	</form>
+</div> -->
+
+<div class="row" ng-hide="home.isEmpty">
+	<div class="col-xs-6 col-md-6 col-md-offset-3">
+		<div class="panel panel-default">
+
+			<table class="table table-striped table-hover">
+
+				<tr>
+
+					<th>Date</th>
+					<th>Reason</th>
+
+				</tr>
+
+				<tr ng-repeat="app in home.appointments">
+
+					<td><a ui-sref="home.doctor.appointment({appId: app.appId})">{{app.appDate}}</a></td>
+					<td>{{app.reason}}</td>
+
+				</tr>
+
+			</table>
+
+		</div>
+
+
+	</div>
+</div>
+<!--  Message if the list of pending appointments is empty -->
+<div class="row">
+	<div ng-show="home.isEmpty"
+		class="alert alert-warning col-xs-6 col-md-6 col-md-offset-3">
+		<h5 align="center">There is no requested appointments at this
+			time.</h5>
+	</div>
+</div>
+
+<!--  Message when the action on appointment is submitted-->
+<div class="row">
+	<div ng-show="docAppMessage"
+		class="alert alert-success col-xs-6 col-md-6 col-md-offset-3">
+		<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+		<h5 align="center"><strong>{{docAppMessage}}</strong></h5>
+	</div>
+</div>
+
+<div class="container-fluid">
+	<div ui-view></div>
+</div>
