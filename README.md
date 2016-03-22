@@ -1,1 +1,2 @@
-# pors
+# Project Name: Project Management System
+Project description: This system allows the company manager to create, monitor, and track all the information about company’s projects. Each project provides a lot of information such as description, estimated cost, start and end dates, remarks etc. The manager distributes the projects among active employees and can monitor status of all projects in different stages.
